@@ -1,0 +1,28 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net10.0-windows</TargetFramework>
+    <UseWPF>true</UseWPF>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <AssemblyName>EnvMonitor.Studio</AssemblyName>
+    <RootNamespace>EnvMonitor.Studio</RootNamespace>
+    <ApplicationIcon>Assets\环境检测器.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Data.Sqlite" Version="10.0.0" />
+    <PackageReference Include="MQTTnet" Version="5.2.0.1603" />
+    <PackageReference Include="System.IO.Ports" Version="10.0.0" />
+    <PackageReference Include="SQLitePCLRaw.lib.e_sqlite3" Version="2.1.13" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\环境检测器.ico" />
+    <Content Include="Assets\环境检测器.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+  </ItemGroup>
+  <Target Name="复制应用图标到发布目录" AfterTargets="Publish">
+    <Copy SourceFiles="Assets\环境检测器.png;Assets\环境检测器.ico" DestinationFolder="$(PublishDir)" />
+  </Target>
+</Project>

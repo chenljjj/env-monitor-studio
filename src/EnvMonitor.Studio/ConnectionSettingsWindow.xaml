@@ -1,0 +1,20 @@
+<Window x:Class="EnvMonitor.Studio.ConnectionSettingsWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="连接设置" Width="610" Height="760" ResizeMode="NoResize" WindowStartupLocation="CenterOwner">
+  <Grid Margin="24"><Grid.RowDefinitions><RowDefinition Height="Auto" /><RowDefinition Height="12" /><RowDefinition Height="*" /><RowDefinition Height="12" /><RowDefinition Height="Auto" /></Grid.RowDefinitions>
+    <Grid><Grid.ColumnDefinitions><ColumnDefinition Width="*" /><ColumnDefinition Width="Auto" /></Grid.ColumnDefinitions><StackPanel><TextBlock Text="连接设置" FontSize="20" FontWeight="SemiBold" /><TextBlock Text="串口与 MQTT 参数仅保存在本机；密码使用 Windows DPAPI 加密。" Foreground="#667085" Margin="0,5,0,0" FontSize="11" /></StackPanel><Button Grid.Column="1" Content="刷新串口" Click="RefreshPorts_Click" /></Grid>
+    <Grid Grid.Row="2"><Grid.ColumnDefinitions><ColumnDefinition Width="1*" /><ColumnDefinition Width="12" /><ColumnDefinition Width="1.45*" /></Grid.ColumnDefinitions>
+      <StackPanel><TextBlock Text="STM32 USART2" FontWeight="SemiBold" /><TextBlock Text="串口" Margin="0,12,0,4" /><ComboBox x:Name="StmPortBox" /><TextBlock Text="波特率" Margin="0,10,0,4" /><TextBox x:Name="StmBaudBox" /><StackPanel Orientation="Horizontal" Margin="0,10,0,0"><Button Content="连接" Click="ConnectStm_Click" /><Button Content="断开" Margin="8,0,0,0" Click="DisconnectStm_Click" /></StackPanel>
+        <TextBlock Text="ESP32 ESP-IDF Monitor" FontWeight="SemiBold" Margin="0,28,0,0" /><TextBlock Text="串口" Margin="0,12,0,4" /><ComboBox x:Name="EspPortBox" /><TextBlock Text="波特率" Margin="0,10,0,4" /><TextBox x:Name="EspBaudBox" /><StackPanel Orientation="Horizontal" Margin="0,10,0,0"><Button Content="连接" Click="ConnectEsp_Click" /><Button Content="断开" Margin="8,0,0,0" Click="DisconnectEsp_Click" /></StackPanel>
+      </StackPanel>
+      <StackPanel Grid.Column="2"><TextBlock Text="MQTT / TLS" FontWeight="SemiBold" /><TextBlock Text="Broker 主机" Margin="0,12,0,4" /><TextBox x:Name="HostBox" /><Grid Margin="0,10,0,0"><Grid.ColumnDefinitions><ColumnDefinition /><ColumnDefinition Width="8" /><ColumnDefinition /></Grid.ColumnDefinitions><StackPanel><TextBlock Text="端口" Margin="0,0,0,4" /><TextBox x:Name="PortBox" /></StackPanel><StackPanel Grid.Column="2"><TextBlock Text="Client ID" Margin="0,0,0,4" /><TextBox x:Name="ClientIdBox" /></StackPanel></Grid>
+        <TextBlock Text="遥测 Topic" Margin="0,10,0,4" /><TextBox x:Name="TelemetryTopicBox" /><TextBlock Text="状态 Topic（可留空）" Margin="0,10,0,4" /><TextBox x:Name="StatusTopicBox" /><Grid Margin="0,10,0,0"><Grid.ColumnDefinitions><ColumnDefinition /><ColumnDefinition Width="8" /><ColumnDefinition /></Grid.ColumnDefinitions><StackPanel><TextBlock Text="用户名" Margin="0,0,0,4" /><TextBox x:Name="UsernameBox" /></StackPanel><StackPanel Grid.Column="2"><TextBlock Text="密码" Margin="0,0,0,4" /><PasswordBox x:Name="PasswordBox" /></StackPanel></Grid>
+        <CheckBox x:Name="ValidateCertificateBox" Content="校验 Broker 证书（公有 CA 通常保持勾选）" IsChecked="True" Margin="0,12,0,0" />
+        <StackPanel Orientation="Horizontal" Margin="0,10,0,0"><Button Content="保存并连接 MQTT" Style="{StaticResource AccentButton}" Click="ConnectMqtt_Click" /><Button Content="断开 MQTT" Margin="8,0,0,0" Click="DisconnectMqtt_Click" /></StackPanel>
+        <TextBlock Text="CA 文件路径（私有 CA 才填）" Margin="0,10,0,4" /><TextBox x:Name="CaCertificateBox" /><TextBlock Text="客户端证书路径（双向 TLS 才填）" Margin="0,8,0,4" /><TextBox x:Name="ClientCertificateBox" /><TextBlock Text="私钥路径（双向 TLS 才填）" Margin="0,8,0,4" /><TextBox x:Name="PrivateKeyBox" />
+      </StackPanel>
+    </Grid>
+    <TextBlock x:Name="StatusText" Grid.Row="4" Foreground="#0F766E" TextWrapping="Wrap" />
+  </Grid>
+</Window>

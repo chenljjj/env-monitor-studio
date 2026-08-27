@@ -1,0 +1,22 @@
+<Application x:Class="EnvMonitor.Studio.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <Application.Resources>
+    <Style TargetType="Window">
+      <Setter Property="FontFamily" Value="Microsoft YaHei UI" />
+      <Setter Property="Background" Value="#F5F7FA" />
+      <Setter Property="Foreground" Value="#1D2939" />
+    </Style>
+    <Style TargetType="Button">
+      <Setter Property="Padding" Value="13,0" /><Setter Property="Height" Value="34" />
+      <Setter Property="FontSize" Value="13" /><Setter Property="FontWeight" Value="SemiBold" />
+      <Setter Property="Background" Value="White" /><Setter Property="BorderBrush" Value="#C9D5E3" />
+      <Setter Property="Foreground" Value="#344054" /><Setter Property="Cursor" Value="Hand" />
+      <Setter Property="Template"><Setter.Value><ControlTemplate TargetType="Button"><Border x:Name="border" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="1" CornerRadius="7" Padding="{TemplateBinding Padding}"><ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" /></Border><ControlTemplate.Triggers><Trigger Property="IsMouseOver" Value="True"><Setter TargetName="border" Property="Background" Value="#EAF4FF" /><Setter TargetName="border" Property="BorderBrush" Value="#5CA9E6" /></Trigger><Trigger Property="IsEnabled" Value="False"><Setter TargetName="border" Property="Opacity" Value="0.55" /></Trigger></ControlTemplate.Triggers></ControlTemplate></Setter.Value></Setter>
+    </Style>
+    <Style TargetType="TextBox"><Setter Property="Height" Value="34" /><Setter Property="Padding" Value="10,0" /><Setter Property="VerticalContentAlignment" Value="Center" /><Setter Property="BorderBrush" Value="#C9D5E3" /><Setter Property="Background" Value="White" /></Style>
+    <Style TargetType="ComboBox"><Setter Property="Height" Value="34" /><Setter Property="Padding" Value="8,0" /><Setter Property="BorderBrush" Value="#C9D5E3" /><Setter Property="Background" Value="White" /></Style>
+    <Style x:Key="Card" TargetType="Border"><Setter Property="Background" Value="White" /><Setter Property="BorderBrush" Value="#D8E0E8" /><Setter Property="BorderThickness" Value="1" /><Setter Property="CornerRadius" Value="10" /><Setter Property="Padding" Value="16" /><Setter Property="Margin" Value="0,0,12,0" /></Style>
+    <Style x:Key="AccentButton" TargetType="Button" BasedOn="{StaticResource {x:Type Button}}"><Setter Property="Background" Value="#0E7490" /><Setter Property="Foreground" Value="White" /><Setter Property="BorderBrush" Value="#0E7490" /></Style>
+  </Application.Resources>
+</Application>

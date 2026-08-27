@@ -1,0 +1,11 @@
+{
+  "name": "env-monitor-studio",
+  "version": "0.1.0",
+  "private": true,
+  "description": "STM32/ESP32/MQTT 三源环境监测原生 WPF 调试上位机",
+  "scripts": {
+    "dev": "dotnet run --project src/EnvMonitor.Studio/EnvMonitor.Studio.csproj",
+    "build": "dotnet build src/EnvMonitor.Studio/EnvMonitor.Studio.csproj",
+    "package:win": "dotnet publish src/EnvMonitor.Studio/EnvMonitor.Studio.csproj -c Release -r win-x64 --self-contained false -o release"
+  }
+}
